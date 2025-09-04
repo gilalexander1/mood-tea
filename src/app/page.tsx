@@ -150,9 +150,31 @@ function Stars() {
 function FlipCard({ front, back, flipped }: { front: React.ReactNode; back: React.ReactNode; flipped: boolean }) {
   return (
     <div className="[perspective:1200px] w-full max-w-xl mx-auto">
-      <motion.div className="relative h-[340px] w-full [transform-style:preserve-3d]" animate={{ rotateY: flipped ? 180 : 0 }} transition={{ type: 'spring', stiffness: 120, damping: 16 }}>
-        <div className="absolute inset-0 [backface-visibility:hidden]">{front}</div>
-        <div className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]">{back}</div>
+      <motion.div 
+        className="relative h-[340px] w-full" 
+        animate={{ rotateY: flipped ? 180 : 0 }} 
+        transition={{ type: 'spring', stiffness: 120, damping: 16 }}
+        style={{ 
+          transformStyle: 'preserve-3d',
+          willChange: 'transform'
+        }}
+      >
+        <div 
+          className="absolute inset-0 [backface-visibility:hidden]" 
+          style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
+        >
+          {front}
+        </div>
+        <div 
+          className="absolute inset-0 [transform:rotateY(180deg)] [backface-visibility:hidden]"
+          style={{ 
+            transform: 'rotateY(180deg)', 
+            backfaceVisibility: 'hidden', 
+            WebkitBackfaceVisibility: 'hidden' 
+          }}
+        >
+          {back}
+        </div>
       </motion.div>
     </div>
   );
