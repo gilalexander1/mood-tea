@@ -307,7 +307,7 @@ export default function Page() {
         </AnimatePresence>
 
         <footer className="mt-12 flex items-center justify-center">
-          <div className="text-xs text-emerald-200/50">Built with ❤️ + hot leaf water</div>
+          <div className="text-xs text-emerald-200/50">Built with ❤️ + hot leaf water by Gil for Mel🌻</div>
         </footer>
       </main>
     </div>

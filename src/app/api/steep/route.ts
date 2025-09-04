@@ -1,7 +1,4 @@
-// File: app/api/steep/route.ts
-// -----------------------------
-
-export const dynamic = 'force-static'; // simple edge-friendly route
+export const dynamic = 'force-dynamic';
 
 // --- Types
 
